@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://gcfusjfnukcx"]
+
+[ext_resource type="PackedScene" uid="uid://dk8de3jr6q01l" path="res://obstacle.tscn" id="1_qmpxf"]
+[ext_resource type="Texture2D" uid="uid://dw6vdiqyd2mc7" path="res://assets/orange.png" id="2_3m760"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mpr5"]
+size = Vector2(417, 179)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_praub"]
+size = Vector2(3.5, 172)
+
+[node name="large_building_NS" instance=ExtResource("1_qmpxf")]
+position = Vector2(117, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_collisions" index="0"]
+position = Vector2(93, 35)
+shape = SubResource("RectangleShape2D_3mpr5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-116.75, 16)
+shape = SubResource("RectangleShape2D_praub")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+position = Vector2(94.8125, 27.6251)
+scale = Vector2(0.368381, 0.297454)
+texture = ExtResource("2_3m760")

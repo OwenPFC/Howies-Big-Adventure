@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5oxdgtesxgio"]
+
+[ext_resource type="PackedScene" uid="uid://iycb7ot6kgyl" path="res://shadow.tscn" id="1_s5pwa"]
+[ext_resource type="PackedScene" uid="uid://dk8de3jr6q01l" path="res://obstacle.tscn" id="1_tkhhq"]
+[ext_resource type="Texture2D" uid="uid://dk4n8d73dxkba" path="res://assets/green.png" id="2_npi8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rio1h"]
+size = Vector2(1, 179.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k03cx"]
+size = Vector2(271, 189)
+
+[node name="medium_building" instance=ExtResource("1_tkhhq")]
+position = Vector2(60, 2)
+
+[node name="shadow" parent="." index="0" instance=ExtResource("1_s5pwa")]
+top_level = false
+position = Vector2(204, -49)
+scale = Vector2(1, 1.555)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+position = Vector2(76.9999, 46.75)
+scale = Vector2(0.236111, 0.321759)
+texture = ExtResource("2_npi8p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(214.5, 32.25)
+shape = SubResource("RectangleShape2D_rio1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_collisions" index="0"]
+position = Vector2(75.5, 58.5)
+shape = SubResource("RectangleShape2D_k03cx")

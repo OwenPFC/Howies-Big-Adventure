@@ -1,0 +1,171 @@
+[gd_scene load_steps=16 format=3 uid="uid://b4b054wfdklas"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_msgsp"]
+[ext_resource type="PackedScene" uid="uid://b5jsi25t2542c" path="res://howie.tscn" id="1_tr8ay"]
+[ext_resource type="Texture2D" uid="uid://g5lxjvs2fn2e" path="res://assets/road.png" id="2_rthus"]
+[ext_resource type="PackedScene" uid="uid://dwvr88hcwo7wd" path="res://obstacle_spawner.tscn" id="3_w1laj"]
+[ext_resource type="PackedScene" uid="uid://bc7lyimwi3lk5" path="res://howie_temperature.tscn" id="4_qs5y2"]
+[ext_resource type="PackedScene" uid="uid://flokfa0jowjr" path="res://obstacle_spawner_right.tscn" id="5_vq8fa"]
+[ext_resource type="PackedScene" uid="uid://blejosoogokqa" path="res://typing.tscn" id="6_gyi84"]
+[ext_resource type="PackedScene" uid="uid://bqrp786suxw24" path="res://cloud_spawner.tscn" id="7_e4dd0"]
+[ext_resource type="Texture2D" uid="uid://clhgs8xee88ve" path="res://assets/shadow.png" id="8_8gon3"]
+[ext_resource type="Texture2D" uid="uid://ddh1excex8l18" path="res://assets/fire.png" id="9_4jk2y"]
+[ext_resource type="Texture2D" uid="uid://cmcodel742h5u" path="res://assets/win.png" id="11_y4n1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn7vk"]
+size = Vector2(1490, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dix22"]
+size = Vector2(1546, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g567r"]
+size = Vector2(24, 677)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ve48"]
+size = Vector2(82, 1036)
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_msgsp")
+metadata/_edit_horizontal_guides_ = [346.0]
+metadata/_edit_vertical_guides_ = [1306.0]
+
+[node name="Road" type="Sprite2D" parent="."]
+position = Vector2(579.5, 323)
+scale = Vector2(1.06894, 1.11728)
+texture = ExtResource("2_rthus")
+
+[node name="obstacle_spawner" parent="." instance=ExtResource("3_w1laj")]
+position = Vector2(0, -242)
+
+[node name="obstacle_spawner_right" parent="." instance=ExtResource("5_vq8fa")]
+position = Vector2(738, -223)
+
+[node name="howie" parent="." instance=ExtResource("1_tr8ay")]
+position = Vector2(528, 346)
+motion_mode = 1
+slide_on_ceiling = false
+platform_on_leave = 2
+
+[node name="top_boundary" type="Area2D" parent="."]
+position = Vector2(79, -63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top_boundary"]
+position = Vector2(522, 8)
+shape = SubResource("RectangleShape2D_bn7vk")
+
+[node name="bottom_boundary" type="Area2D" parent="."]
+position = Vector2(-17, 225)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom_boundary"]
+position = Vector2(581, 616)
+shape = SubResource("RectangleShape2D_dix22")
+
+[node name="left_wall" type="StaticBody2D" parent="."]
+position = Vector2(-30, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_wall"]
+position = Vector2(-11, 329.5)
+shape = SubResource("RectangleShape2D_g567r")
+
+[node name="right_wall" type="StaticBody2D" parent="."]
+position = Vector2(1207, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_wall"]
+position = Vector2(-11, 329.5)
+shape = SubResource("RectangleShape2D_g567r")
+
+[node name="howie_temperature" parent="." instance=ExtResource("4_qs5y2")]
+position = Vector2(70, 210)
+scale = Vector2(0.8, 0.8)
+
+[node name="typing" parent="." instance=ExtResource("6_gyi84")]
+
+[node name="cloud_spawner" parent="." instance=ExtResource("7_e4dd0")]
+position = Vector2(-467, 344)
+
+[node name="cloud_killer" type="Area2D" parent="."]
+position = Vector2(1554, 166)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cloud_killer"]
+position = Vector2(16, 184)
+shape = SubResource("RectangleShape2D_1ve48")
+
+[node name="restart" type="Button" parent="."]
+visible = false
+offset_left = 449.0
+offset_top = 427.0
+offset_right = 603.0
+offset_bottom = 517.0
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Restart"
+
+[node name="text" type="Label" parent="restart"]
+layout_mode = 0
+offset_left = -157.0
+offset_top = -217.0
+offset_right = 312.0
+offset_bottom = -96.0
+theme_override_font_sizes/font_size = 50
+text = "BURNED ALIVE"
+
+[node name="Sprite2D" type="Sprite2D" parent="restart/text"]
+self_modulate = Color(1, 1, 1, 0.866667)
+show_behind_parent = true
+position = Vector2(273, 66)
+scale = Vector2(2.73973, 1)
+texture = ExtResource("8_8gon3")
+
+[node name="Sprite2D" type="Sprite2D" parent="restart"]
+show_behind_parent = true
+position = Vector2(154, -69.5)
+scale = Vector2(1.23211, 1.27932)
+texture = ExtResource("9_4jk2y")
+
+[node name="winScreen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(574, 333)
+scale = Vector2(1.03665, 1.05247)
+texture = ExtResource("11_y4n1p")
+
+[node name="Label" type="Label" parent="winScreen"]
+offset_left = -158.0
+offset_top = 75.0
+offset_right = 236.0
+offset_bottom = 125.0
+autowrap_mode = 2
+
+[node name="textbox" type="Sprite2D" parent="winScreen/Label"]
+self_modulate = Color(1, 1, 1, 0.803922)
+show_behind_parent = true
+position = Vector2(191.389, 25.3138)
+scale = Vector2(1.55493, 0.312366)
+texture = ExtResource("8_8gon3")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 430.0
+offset_top = 433.0
+offset_right = 695.0
+offset_bottom = 556.0
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Menu"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+
+[connection signal="decrease_temp" from="howie" to="howie_temperature" method="_on_howie_decrease_temp"]
+[connection signal="increase_temp" from="howie" to="howie_temperature" method="_on_howie_increase_temp"]
+[connection signal="body_entered" from="bottom_boundary" to="." method="_on_bottom_boundary_body_entered"]
+[connection signal="fail" from="howie_temperature" to="." method="_on_howie_temperature_fail"]
+[connection signal="correct_letter" from="typing" to="howie" method="_on_typing_correct_letter"]
+[connection signal="incorrect_letter" from="typing" to="." method="_on_typing_incorrect_letter"]
+[connection signal="incorrect_letter" from="typing" to="howie" method="_on_typing_incorrect_letter"]
+[connection signal="perfect_segment" from="typing" to="." method="_on_typing_perfect_segment"]
+[connection signal="perfect_segment" from="typing" to="howie" method="_on_typing_perfect_segment"]
+[connection signal="win" from="typing" to="." method="_on_typing_win"]
+[connection signal="area_entered" from="cloud_killer" to="." method="_on_cloud_killer_area_entered"]
+[connection signal="body_entered" from="cloud_killer" to="." method="_on_cloud_killer_body_entered"]
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="music" to="." method="_on_music_finished"]

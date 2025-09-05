@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsvmr0m5iwsy8"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_rr6pq"]
+[ext_resource type="Texture2D" uid="uid://bun4bvnt2e3o3" path="res://assets/title_screen.png" id="2_atxmi"]
+[ext_resource type="Texture2D" uid="uid://cw8qv7b2ok26n" path="res://assets/lightpurp.png" id="3_k3frs"]
+[ext_resource type="Texture2D" uid="uid://doauqo2e1vr76" path="res://assets/credits.png" id="4_sgtqu"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_rr6pq")
+metadata/_edit_vertical_guides_ = [1435.0]
+
+[node name="Lightpurp" type="Sprite2D" parent="."]
+position = Vector2(727, 382)
+scale = Vector2(1.26119, 1.25309)
+texture = ExtResource("2_atxmi")
+
+[node name="Lightpurp2" type="Sprite2D" parent="."]
+position = Vector2(-491, 390.5)
+scale = Vector2(1, 1.3534)
+texture = ExtResource("3_k3frs")
+
+[node name="credits" type="Button" parent="."]
+offset_left = 81.0
+offset_top = 424.0
+offset_right = 335.0
+offset_bottom = 583.0
+theme_override_font_sizes/font_size = 50
+text = "CREDITS"
+
+[node name="play" type="Button" parent="."]
+offset_left = 844.0
+offset_top = 420.0
+offset_right = 1079.0
+offset_bottom = 586.0
+theme_override_font_sizes/font_size = 50
+text = "PLAY"
+
+[node name="credit_screen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(555.75, 312.75)
+scale = Vector2(1.33835, 1.5547)
+texture = ExtResource("4_sgtqu")
+
+[node name="Button" type="Button" parent="credit_screen"]
+offset_left = 237.046
+offset_top = 157.747
+offset_right = 392.046
+offset_bottom = 201.747
+text = "RETURN"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="credit_screen/Button" to="." method="_on_button_pressed"]

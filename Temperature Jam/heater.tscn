@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buv1n0v0vsx2k"]
+
+[ext_resource type="Script" path="res://AnimatableBody2D.gd" id="1_gevmj"]
+
+[node name="heater" type="AnimatableBody2D"]
+script = ExtResource("1_gevmj")

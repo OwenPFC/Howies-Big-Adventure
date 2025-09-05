@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://4m0e1n2tyrwl"]
+
+[ext_resource type="PackedScene" uid="uid://dk8de3jr6q01l" path="res://obstacle.tscn" id="1_guna5"]
+[ext_resource type="PackedScene" uid="uid://iycb7ot6kgyl" path="res://shadow.tscn" id="1_qhfda"]
+[ext_resource type="Texture2D" uid="uid://dw6vdiqyd2mc7" path="res://assets/orange.png" id="2_0raey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqaaj"]
+size = Vector2(2, 175)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgc8v"]
+size = Vector2(421, 177)
+
+[node name="large_building" instance=ExtResource("1_guna5")]
+position = Vector2(115, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(94.8125, 27.6251)
+scale = Vector2(0.368381, 0.297454)
+texture = ExtResource("2_0raey")
+
+[node name="shadow" parent="." index="1" instance=ExtResource("1_qhfda")]
+top_level = false
+position = Vector2(302, -63)
+scale = Vector2(1, 1.485)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(305, 17)
+shape = SubResource("RectangleShape2D_pqaaj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_collisions" index="0"]
+position = Vector2(93, 38)
+shape = SubResource("RectangleShape2D_cgc8v")

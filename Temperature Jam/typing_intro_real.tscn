@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7que4ghab61y"]
+
+[ext_resource type="Texture2D" uid="uid://didgqfhw2r2qo" path="res://assets/text_assets/howie_cover.png" id="1_7e1hs"]
+[ext_resource type="Script" path="res://typing_intro.gd" id="1_21461"]
+
+[node name="typing_intro_real" type="Node2D"]
+script = ExtResource("1_21461")
+
+[node name="howie_intro" type="Sprite2D" parent="."]
+position = Vector2(576, 320)
+texture = ExtResource("1_7e1hs")
+
+[node name="text_to_type" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

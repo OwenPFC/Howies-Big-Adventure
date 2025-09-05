@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://j4soj3u1856h"]
+
+[ext_resource type="Script" path="res://cloud.gd" id="1_ooyam"]
+[ext_resource type="Texture2D" uid="uid://b5fmf3l7r21f0" path="res://assets/clouds/c1.png" id="2_o0jc5"]
+[ext_resource type="PackedScene" uid="uid://iycb7ot6kgyl" path="res://shadow.tscn" id="3_nhnt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oin6"]
+size = Vector2(64, 46)
+
+[node name="cloud" type="AnimatableBody2D"]
+script = ExtResource("1_ooyam")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o0jc5")
+
+[node name="shadow" parent="." instance=ExtResource("3_nhnt7")]
+visible = false
+top_level = false
+position = Vector2(-174, -89)
+scale = Vector2(6, 4)
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(1, 13)
+shape = SubResource("RectangleShape2D_3oin6")

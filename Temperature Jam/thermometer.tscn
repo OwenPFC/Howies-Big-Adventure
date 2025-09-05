@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfph44k64n77k"]
+
+[ext_resource type="Script" path="res://thermometer.gd" id="1_dpfjq"]
+[ext_resource type="Texture2D" uid="uid://db7m1w5qlcbai" path="res://assets/thermometer/c_temp.png" id="2_iia18"]
+[ext_resource type="Texture2D" uid="uid://cvp84btuxc8s" path="res://assets/thermometer/arrow.png" id="3_i7m6b"]
+[ext_resource type="Texture2D" uid="uid://bhl567inbcom8" path="res://assets/thermometer/f_temp.png" id="4_4rfe8"]
+[ext_resource type="Texture2D" uid="uid://wrmxr5e3i6i2" path="res://assets/thermometer/c_temp_milk.png" id="5_kuvqi"]
+[ext_resource type="Texture2D" uid="uid://c4ifnq0sbsfkc" path="res://assets/thermometer/f_temp_milk.png" id="6_itgsp"]
+
+[node name="thermometer" type="Node2D"]
+script = ExtResource("1_dpfjq")
+
+[node name="CTemp" type="Sprite2D" parent="."]
+position = Vector2(183, 231)
+texture = ExtResource("2_iia18")
+offset = Vector2(9, -19)
+
+[node name="Arrow" type="Sprite2D" parent="CTemp"]
+position = Vector2(14, -14)
+rotation = 1.07861
+scale = Vector2(0.625, 0.547078)
+texture = ExtResource("3_i7m6b")
+offset = Vector2(-5.60254, -103.346)
+
+[node name="FTemp" type="Sprite2D" parent="."]
+position = Vector2(376, 509)
+texture = ExtResource("4_4rfe8")
+
+[node name="Arrow" type="Sprite2D" parent="FTemp"]
+position = Vector2(-30, -42)
+rotation = -0.610865
+scale = Vector2(0.625, 0.547078)
+texture = ExtResource("3_i7m6b")
+offset = Vector2(-5.60254, -103.346)
+
+[node name="CTempMilk" type="Sprite2D" parent="."]
+position = Vector2(998, 270)
+texture = ExtResource("5_kuvqi")
+
+[node name="Arrow" type="Sprite2D" parent="CTempMilk"]
+position = Vector2(-39, -63)
+rotation = -1.92684
+scale = Vector2(0.625, 0.547078)
+texture = ExtResource("3_i7m6b")
+offset = Vector2(-5.60254, -103.346)
+
+[node name="FTempMilk" type="Sprite2D" parent="."]
+position = Vector2(777, 506)
+texture = ExtResource("6_itgsp")
+
+[node name="Arrow" type="Sprite2D" parent="FTempMilk"]
+rotation = -0.610865
+scale = Vector2(0.625, 0.547078)
+texture = ExtResource("3_i7m6b")
+offset = Vector2(-5.60254, -103.346)

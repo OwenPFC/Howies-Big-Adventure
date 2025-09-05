@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://h7rkj1yhj1p2"]
+
+[ext_resource type="PackedScene" uid="uid://dk8de3jr6q01l" path="res://obstacle.tscn" id="1_ux6vh"]
+[ext_resource type="Texture2D" uid="uid://dk4n8d73dxkba" path="res://assets/green.png" id="2_1fx1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqpbu"]
+size = Vector2(271, 211.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1r88"]
+size = Vector2(2, 186)
+
+[node name="medium_building_NS" instance=ExtResource("1_ux6vh")]
+position = Vector2(59, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(76.9999, 46.75)
+scale = Vector2(0.236111, 0.321759)
+texture = ExtResource("2_1fx1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_collisions" index="0"]
+position = Vector2(78.5, 48.25)
+shape = SubResource("RectangleShape2D_dqpbu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(-60, 35)
+shape = SubResource("RectangleShape2D_b1r88")

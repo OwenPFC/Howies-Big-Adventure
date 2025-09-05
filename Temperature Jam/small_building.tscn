@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c06juwl3n1y6"]
+
+[ext_resource type="PackedScene" uid="uid://iycb7ot6kgyl" path="res://shadow.tscn" id="1_kpsyv"]
+[ext_resource type="PackedScene" uid="uid://dk8de3jr6q01l" path="res://obstacle.tscn" id="1_qlbcn"]
+[ext_resource type="Texture2D" uid="uid://dmc2yd4raplvi" path="res://assets/blue.png" id="2_evptu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bm7e2"]
+size = Vector2(2.5, 173.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knf86"]
+size = Vector2(177.5, 187)
+
+[node name="small_building" instance=ExtResource("1_qlbcn")]
+position = Vector2(34, 0)
+
+[node name="shadow" parent="." index="0" instance=ExtResource("1_kpsyv")]
+top_level = false
+position = Vector2(136, -25)
+scale = Vector2(1, 1.459)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(143.75, 52.25)
+shape = SubResource("RectangleShape2D_bm7e2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_collisions" index="0"]
+position = Vector2(52.25, 70.5)
+shape = SubResource("RectangleShape2D_knf86")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+position = Vector2(54, 62.2501)
+scale = Vector2(0.15625, 0.304784)
+texture = ExtResource("2_evptu")

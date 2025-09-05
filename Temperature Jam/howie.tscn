@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5jsi25t2542c"]
+
+[ext_resource type="Texture2D" uid="uid://bon63850gcudq" path="res://assets/howie_sprites/howie_stand.png" id="2_iv0f8"]
+[ext_resource type="Script" path="res://howie_physics.gd" id="2_kigan"]
+[ext_resource type="Texture2D" uid="uid://c365ubmynpcuw" path="res://assets/howie_sprites/howie_walk_1.png" id="3_1bb4u"]
+[ext_resource type="Texture2D" uid="uid://b5t0buxskg15y" path="res://assets/howie_sprites/howie_walk_2.png" id="4_pa5ex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7ii"]
+size = Vector2(34, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0hda"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iv0f8")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1bb4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pa5ex")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[node name="howie" type="CharacterBody2D"]
+script = ExtResource("2_kigan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 73.5)
+shape = SubResource("RectangleShape2D_6f7ii")
+
+[node name="celsius" type="Label" parent="."]
+offset_left = 230.0
+offset_top = 59.0
+offset_right = 270.0
+offset_bottom = 82.0
+
+[node name="fahrenheit" type="Label" parent="."]
+offset_left = 325.0
+offset_top = 47.0
+offset_right = 365.0
+offset_bottom = 70.0
+
+[node name="howie_sprites" type="AnimatedSprite2D" parent="."]
+position = Vector2(49, 84)
+sprite_frames = SubResource("SpriteFrames_w0hda")
+animation = &"walk"
+frame_progress = 0.97247

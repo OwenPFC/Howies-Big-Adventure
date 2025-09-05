@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bai3skneet6eu"]
+
+[ext_resource type="Texture2D" uid="uid://4txhv8ndmf1h" path="res://assets/buildings/peter.png" id="1_c8wcx"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Peter" type="Sprite2D" parent="."]
+position = Vector2(569, 314)
+texture = ExtResource("1_c8wcx")
