@@ -1,2 +1,2 @@
-# Howies-Big-Adventure
-Narrative Driven Infinite Runner Typing Game
+# The First Ever Narrative Driven Infinite Runner Typing Game (or at least the best)
+
